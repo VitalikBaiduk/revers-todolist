@@ -6,6 +6,8 @@ type TodolistProps = {
 };
 
 export const Todolist: React.FC<TodolistProps> = ({ title, arrData }) => {
+  const arr = [];
+
   return (
     <div>
       <h3>{title}</h3>
