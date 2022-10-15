@@ -1,26 +1,30 @@
 import React from "react";
 
-type TodolistProps = {
-  title: string;
-  arrData: Array<any>;
+type arrayObj = {
+  text: string;
+  isChecked: boolean;
+  id: number;
 };
 
-export const Todolist: React.FC<TodolistProps> = ({ title, arrData }) => {
-  const arr = [];
+type TodolistProps = {
+  title: string;
+  arrayData: Array<arrayObj>;
+};
 
+export const Todolist = (props: TodolistProps) => {
   return (
     <div>
-      <h3>{title}</h3>
+      <h3>{props.title}</h3>
       <div>
         <input />
         <button>+</button>
       </div>
       <ul>
-        {arrData.map((item: any) => {
+        {props.arrayData.map((el: arrayObj, index: number) => {
           return (
-            <li>
-              <input type="checkbox" checked={item.isDone} />
-              <span>{item.title}</span>
+            <li key={el.id}>
+              <input type="checkbox" checked={el.isChecked} />
+              <span>{el.text}</span>
             </li>
           );
         })}
