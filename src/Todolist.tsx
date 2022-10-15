@@ -9,6 +9,9 @@ type arrayObj = {
 type TodolistProps = {
   title: string;
   arrayData: Array<arrayObj>;
+  allButtonHandler: () => void;
+  activeButtonHandler: () => void;
+  completedButtonHandler: () => void;
 };
 
 export const Todolist = (props: TodolistProps) => {
@@ -30,9 +33,9 @@ export const Todolist = (props: TodolistProps) => {
         })}
       </ul>
       <div>
-        <button>All</button>
-        <button>Active</button>
-        <button>Completed</button>
+        <button onClick={props.allButtonHandler}>All</button>
+        <button onClick={props.activeButtonHandler}>Active</button>
+        <button onClick={props.completedButtonHandler}>Completed</button>
       </div>
     </div>
   );
